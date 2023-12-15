@@ -1,9 +1,7 @@
 :root {
-    --dark-mode-bcg: #181a1b;
-    --dark-mode-color: white;
-
-    --light-mode-bcg: white;
-    --light-mode-color: #181a1b;
+    --bcg-color-theme: #181a1b;
+    --color: white;
+    --shadow-color: black;
 
     --library-log: ;
 }
@@ -13,6 +11,63 @@
     padding: 0;
 }
 html {
-    background-color: var(--dark-mode-bcg);
-    color: var(--dark-mode-color);
+    min-height: 100%; 
+    min-width: 100%;
+}
+body {
+    background-color: var(--bcg-color-theme);
+    color: var(--color);
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+
+    /* change to 100vh once border is removed*/
+    height: 100vh; 
+    width: 100vw;
+}
+button {
+    all: unset;
+}
+
+.container {
+    display: grid;
+    grid-template: 1fr 7fr / 2fr 1fr 1fr;
+
+    height: 100%;
+}
+
+
+.container .header {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template: 1fr / auto auto 1fr;
+    gap: 25px;
+    align-items: center;
+
+    border-bottom: 3px solid var(--shadow-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+.container .header .header-title {
+    padding-left:50px;
+    font-size: 40px;
+}
+.container .header .svg-darkmode {
+    -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+    filter: invert(100%);
+}
+.container .header .lib-log {
+    justify-self: end;
+    padding-right: 100px;
+}
+
+
+.container .content {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template: 150px 1fr / 1fr 1fr 1fr;
+}
+.container .content .navbar {
+    grid-column: 1 / -1;
 }
