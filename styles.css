@@ -54,6 +54,9 @@ button {
     -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
     filter: invert(100%);
 }
+.container .header object {
+    align-self: center;
+}
 .container .header .lib-log {
     justify-self: end;
     padding-right: 50px;
@@ -87,14 +90,14 @@ button {
     border: 2px solid var(--color);
     box-shadow: 2px 2px 4px gray;
 }
-.container .content .books {
+.container .content .shelf {
     display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-template-rows: repeat(auto-fill, 200px);
     gap: 35px;
 }
-.container .content .books .card-read,
-.container .content .books .card-unread {
+.container .content .shelf .card-read,
+.container .content .shelf .card-unread {
     position: relative;
     border-radius: 8px;
     min-height: 160px;
@@ -103,15 +106,15 @@ button {
     display: grid;
     gap: 8px;
 }
-.container .content .books .card-read {
+.container .content .shelf .card-read {
     background: linear-gradient(135deg, rgba(24, 77, 104, 0.8) 0%, rgba(87, 202, 133, 0.8) 100%);
     color: white;
 }
-.container .content .books .card-unread {
+.container .content .shelf .card-unread {
     background: linear-gradient(135deg, #e3e3e3 0%, #5d6874 100%);
     color: black;
 }
-.container .content .books button {
+.container .content .shelf button {
     position: absolute;
     text-align: center;
     right: 30px;
@@ -124,13 +127,13 @@ button {
     border-radius: 6px;
     border: 2px solid;
 }
-.container .content .books button:hover,
+.container .content .shelf button:hover,
 .container .navbar button:hover {
     scale: 1.03;
     transition: 0.5ms;
     cursor: pointer
 }
-.container .content .books button:active,
+.container .content .shelf button:active,
 .container .navbar button:active {
     scale: 1;
 }
