@@ -10,20 +10,17 @@
     margin: 0;
     padding: 0;
 }
-html {
-    min-height: 100%; 
-    min-width: 100%;
-}
-body {
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
     background-color: var(--bcg-color-theme);
     color: var(--color);
 
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
-
-    /* change to 100vh once border is removed*/
-    height: 100vh; 
-    width: 100vw;
+    overflow-y: auto;
 }
 button {
     all: unset;
@@ -44,6 +41,7 @@ button {
     grid-template: 1fr / auto auto 1fr;
     gap: 25px;
     align-items: center;
+    padding: 20px;
 
     border-bottom: 3px solid var(--shadow-color);
     box-shadow: 0 4px 6px var(--shadow-color);
@@ -58,16 +56,91 @@ button {
 }
 .container .header .lib-log {
     justify-self: end;
-    padding-right: 100px;
+    padding-right: 50px;
 }
 
 
 .container .content {
     grid-column: 1 / -1;
+    margin-right: 80px;
+    margin-left: 80px;
+    gap: 25px;
+    
 
     display: grid;
-    grid-template: 150px 1fr / 1fr 1fr 1fr;
+    grid-template: 150px 1fr / 1fr;
 }
 .container .content .navbar {
     grid-column: 1 / -1;
+
+    display: grid;
+}
+.container .content .navbar button {
+    grid-column: 2 / 3;
+    align-self: center;
+    text-align: center;
+    user-select: none;
+    
+    width: 175px;
+    height: 65px;
+    border-radius: 7px;
+    border: 2px solid var(--color);
+    box-shadow: 2px 2px 4px gray;
+}
+.container .content .books {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, 200px);
+    gap: 35px;
+}
+.container .content .books .card-read,
+.container .content .books .card-unread {
+    position: relative;
+    border-radius: 8px;
+    min-height: 160px;
+    padding: 20px;
+
+    display: grid;
+    gap: 8px;
+}
+.container .content .books .card-read {
+    background: linear-gradient(135deg, rgba(24, 77, 104, 0.8) 0%, rgba(87, 202, 133, 0.8) 100%);
+    color: white;
+}
+.container .content .books .card-unread {
+    background: linear-gradient(135deg, #e3e3e3 0%, #5d6874 100%);
+    color: black;
+}
+.container .content .books button {
+    position: absolute;
+    text-align: center;
+    right: 30px;
+    bottom: 20px;
+    user-select: none;
+
+    width: 100px;
+    height:30px;
+
+    border-radius: 6px;
+    border: 2px solid;
+}
+.container .content .books button:hover,
+.container .navbar button:hover {
+    scale: 1.03;
+    transition: 0.5ms;
+    cursor: pointer
+}
+.container .content .books button:active,
+.container .navbar button:active {
+    scale: 1;
+}
+
+
+
+
+/* Remove Library Log on Mobile devices */
+@media only screen and (max-width: 470px) {
+    .lib-log{
+        display: none;
+    }
 }
