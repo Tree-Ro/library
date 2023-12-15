@@ -1,0 +1,18 @@
+:root {
+    --dark-mode-bcg: #181a1b;
+    --dark-mode-color: white;
+
+    --light-mode-bcg: white;
+    --light-mode-color: #181a1b;
+
+    --library-log: ;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    background-color: var(--dark-mode-bcg);
+    color: var(--dark-mode-color);
+}
