@@ -26,6 +26,7 @@ function Book(title, author, pages, readStatus) {
 }
 Book.prototype.toggleReadState = function () {
     this.readStatus = !this.readStatus;
+    refreshBookLog(myLibrary);
 };
 
 function retrofitOld() {
@@ -62,11 +63,27 @@ function initialiseButtons() {
     });
 }
 
-function refreshBookLog() {
+function refreshBookLog(array) {
     document.querySelector(
         '.lib-log .total-books'
-    ).textContent = `Finished: ${myLibrary.length}`;
-    myLibrary.forEach((book) => {});
+    ).textContent = `Total: ${myLibrary.length}`;
+
+    let finished = 0;
+    let unfinished = 0;
+    array.forEach((book) => {
+        if (book.readStatus === true) {
+            ++finished;
+        } else if (book.readStatus === false) {
+            ++unfinished;
+        }
+    });
+
+    document.querySelector(
+        '.lib-log .finished-books'
+    ).textContent = `Finished: ${finished}`;
+    document.querySelector(
+        '.lib-log .unfinished-books'
+    ).textContent = `Unfinished ${unfinished}`;
 }
 
 function addBookToLibrary(book) {
@@ -75,7 +92,6 @@ function addBookToLibrary(book) {
 
 function displayBooks(array) {
     array.forEach((obj) => {
-        console.log(obj);
         const card = document.createElement('div');
         const button = document.createElement('button');
         if (obj.readStatus) {
@@ -107,13 +123,14 @@ function displayBooks(array) {
             parent = this.parentNode;
             if (parent.getAttribute('class') === 'card-read') {
                 parent.setAttribute('class', 'card-unread');
-                console.log('unread');
+                this.textContent = 'Incomplete';
             } else {
                 parent.setAttribute('class', 'card-read');
-                console.log('read');
+                this.textContent = 'Complete';
             }
         });
     });
+    refreshBookLog(myLibrary);
 }
 
 retrofitOld();
