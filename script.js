@@ -114,6 +114,13 @@ function displayBooks(array) {
         card.appendChild(document.createElement('p')).textContent =
             'Pages: ' + obj.pages;
 
+        const closeIcon = document.createElement('object');
+        closeIcon.setAttribute('data', 'icons/close.svg');
+        closeIcon.setAttribute('type', 'image/svg+xml');
+        closeIcon.setAttribute('widht', '30');
+        closeIcon.setAttribute('height', '30');
+        card.appendChild(closeIcon);
+
         card.setAttribute('data-index', myLibrary.indexOf(obj));
 
         button.addEventListener('click', function () {
