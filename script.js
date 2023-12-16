@@ -114,12 +114,18 @@ function displayBooks(array) {
         card.appendChild(document.createElement('p')).textContent =
             'Pages: ' + obj.pages;
 
-        const closeIcon = document.createElement('object');
-        closeIcon.setAttribute('data', 'icons/close.svg');
-        closeIcon.setAttribute('type', 'image/svg+xml');
-        closeIcon.setAttribute('widht', '30');
-        closeIcon.setAttribute('height', '30');
+        const closeIcon = document.createElement('img');
+        closeIcon.setAttribute('src', 'icons/close.svg');
+        closeIcon.setAttribute('width', '30');
+
         card.appendChild(closeIcon);
+
+        closeIcon.addEventListener('click', function () {
+            this.parentNode.remove();
+
+            const dataIndex = this.parentNode.getAttribute('data-index');
+            myLibrary.splice(dataIndex, 1);
+        });
 
         card.setAttribute('data-index', myLibrary.indexOf(obj));
 
