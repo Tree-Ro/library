@@ -78,7 +78,7 @@ button {
 
     display: grid;
 }
-.container .content .navbar button {
+.container .content .navbar .new-entry {
     grid-column: 2 / 3;
     align-self: center;
     text-align: center;
@@ -128,13 +128,13 @@ button {
     border: 2px solid;
 }
 .container .content .shelf button:hover,
-.container .navbar button:hover {
+.container .navbar .new-entry:hover {
     scale: 1.03;
     transition: 0.5ms;
     cursor: pointer
 }
 .container .content .shelf button:active,
-.container .navbar button:active {
+.container .navbar .new-entry:active {
     scale: 1;
 }
 
@@ -147,10 +147,9 @@ button {
 
     background-color: var(--bcg-color-theme);
     color: var(--color);
-
-    grid-template: 40px / 1fr;
 }
 ::backdrop {
+    background: 0;
     background-color: #00000094;
 }
 .container .new-book form {

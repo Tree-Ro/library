@@ -13,7 +13,8 @@ const myLibrary = [
     },
 ];
 const shelf = document.querySelector('.shelf');
-const newBook = document.querySelector('.new-book');
+const newBookButton = document.querySelector('.new-entry');
+const newBookModal = document.querySelector('.new-book');
 
 function Book(title, author, pages, readStatus) {
     this.title = title;
@@ -21,6 +22,10 @@ function Book(title, author, pages, readStatus) {
     this.pages = pages;
     this.readStatus = readStatus;
 }
+
+newBookButton.addEventListener('click', () => {
+    newBookModal.showModal();
+});
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
