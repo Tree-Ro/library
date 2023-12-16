@@ -1,18 +1,4 @@
-//Books saved in storage will possibly loose their access to the Book.prototype?
-const myLibrary = [
-    {
-        title: 'The Hobbit',
-        author: 'J.R.R Tolkien',
-        pages: 295,
-        readStatus: true,
-    },
-    {
-        title: 'Harry Potter',
-        author: 'Witch101',
-        pages: 311,
-        readStatus: false,
-    },
-];
+const myLibrary = [];
 const shelf = document.querySelector('.shelf');
 const newBookButton = document.querySelector('.new-entry-button');
 const newBookModal = document.querySelector('.new-book');
