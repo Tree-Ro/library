@@ -138,6 +138,29 @@ button {
     scale: 1;
 }
 
+.container .new-book {
+    margin: auto;
+    padding: 25px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: var(--bcg-color-theme);
+    color: var(--color);
+
+    grid-template: 40px / 1fr;
+}
+::backdrop {
+    background-color: #00000094;
+}
+.container .new-book form {
+    display: grid;
+
+    gap: 25px;
+}
+.container .new-book form div {
+    display: grid;
+}
 
 
 
