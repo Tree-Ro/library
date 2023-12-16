@@ -78,12 +78,13 @@ button {
 
     display: grid;
 }
-.container .content .navbar .new-entry {
+.container .content .navbar .new-entry-button {
     grid-column: 2 / 3;
     align-self: center;
     text-align: center;
     user-select: none;
     
+    font-size: 20px;
     width: 175px;
     height: 65px;
     border-radius: 7px;
@@ -128,19 +129,23 @@ button {
     border: 2px solid;
 }
 .container .content .shelf button:hover,
-.container .navbar .new-entry:hover {
+.container .navbar .new-entry-button:hover,
+.container .new-book form button[type='submit']:hover {
     scale: 1.03;
     transition: 0.5ms;
     cursor: pointer
 }
 .container .content .shelf button:active,
-.container .navbar .new-entry:active {
+.container .navbar .new-entry-button:active,
+.container .new-book form button[type='submit']:active {
     scale: 1;
 }
 
 .container .new-book {
     margin: auto;
-    padding: 25px;
+    padding: 35px;
+    padding-left: 50px;
+    padding-right: 50px;
 
     border: none;
     border-radius: 8px;
@@ -151,16 +156,41 @@ button {
 ::backdrop {
     background: 0;
     background-color: #00000094;
+    position: static;
 }
 .container .new-book form {
     display: grid;
-
     gap: 25px;
+}
+.container .new-book h2 {
+    margin-bottom: 25px;
 }
 .container .new-book form div {
     display: grid;
+    gap: 5px;
 }
+.container .new-book form button[type='submit'] {
+    border: 2px solid var(--color);
+    border-radius: 8px;
+    box-shadow: 1px 1px 4px gray;
 
+    text-align: center;
+    padding: 10px;
+}
+.container .new-book form input[type='text'],
+.container .new-book form input[type='number'] {
+    background-color: gray;
+    border: none;
+    border-radius: 6px;
+    height: 20px;
+    
+    padding: 2px;
+    padding-left: 10px;
+}
+.container .new-book form input[type='text']:focus-visible,
+.container .new-book form input[type='number']:focus-visible {
+    outline: none;
+}
 
 
 /* Remove Library Log on Mobile devices */

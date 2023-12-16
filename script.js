@@ -3,18 +3,19 @@ const myLibrary = [
         title: 'The Hobbit',
         author: 'J.R.R Tolkien',
         pages: 295,
-        readStatus: 'card-read',
+        readStatus: true,
     },
     {
         title: 'Harry Potter',
         author: 'Witch101',
         pages: 311,
-        readStatus: 'card-unread',
+        readStatus: false,
     },
 ];
 const shelf = document.querySelector('.shelf');
-const newBookButton = document.querySelector('.new-entry');
+const newBookButton = document.querySelector('.new-entry-button');
 const newBookModal = document.querySelector('.new-book');
+const modalSubmitButton = document.querySelector("button[type='submit']");
 
 function Book(title, author, pages, readStatus) {
     this.title = title;
@@ -26,6 +27,21 @@ function Book(title, author, pages, readStatus) {
 newBookButton.addEventListener('click', () => {
     newBookModal.showModal();
 });
+modalSubmitButton.addEventListener('click', () => {
+    const book1 = new Book(
+        title.value,
+        author.value,
+        pages.value,
+        readStatus.checked
+    );
+
+    addBookToLibrary(book1);
+
+    displayBooks([book1]);
+
+    document.querySelector('.new-book form').reset();
+    console.log('hello');
+});
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
@@ -34,7 +50,11 @@ function addBookToLibrary(book) {
 function displayBooks(array) {
     array.forEach((obj) => {
         const card = document.createElement('div');
-        card.setAttribute('class', obj.readStatus);
+        if (obj.readStatus) {
+            card.setAttribute('class', 'card-read');
+        } else {
+            card.setAttribute('class', 'card-unread');
+        }
         shelf.appendChild(card);
 
         card.appendChild(document.createElement('p')).textContent =
@@ -48,6 +68,8 @@ function displayBooks(array) {
 
         card.appendChild(document.createElement('button')).textContent =
             'Edit Entry';
+
+        card.setAttribute('data-index', myLibrary.indexOf(obj));
     });
 }
 
