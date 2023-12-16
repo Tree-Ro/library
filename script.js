@@ -90,6 +90,14 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+function resetDataIndex() {
+    const total = document.querySelectorAll('.shelf > *');
+    const totalArray = Array.from(total);
+    totalArray.forEach((card, index) => {
+        card.setAttribute('data-index', index);
+    });
+}
+
 function displayBooks(array) {
     array.forEach((obj) => {
         const card = document.createElement('div');
@@ -121,10 +129,13 @@ function displayBooks(array) {
         card.appendChild(closeIcon);
 
         closeIcon.addEventListener('click', function () {
-            this.parentNode.remove();
-
             const dataIndex = this.parentNode.getAttribute('data-index');
             myLibrary.splice(dataIndex, 1);
+
+            this.parentNode.remove();
+
+            resetDataIndex();
+            refreshBookLog(myLibrary);
         });
 
         card.setAttribute('data-index', myLibrary.indexOf(obj));
