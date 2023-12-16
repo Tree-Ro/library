@@ -169,6 +169,13 @@ button {
     display: grid;
     gap: 5px;
 }
+.container .new-book form label[for='readStatus'] {
+    text-align: center;
+}
+.container .new-book form input[type='checkbox'] {
+    margin: auto;
+    width: min-content;
+}
 .container .new-book form button[type='submit'] {
     border: 2px solid var(--color);
     border-radius: 8px;

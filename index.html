@@ -51,15 +51,16 @@
                     <div>
                         <label for="pages">Pages</label>
                         <input
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             type="number"
                             id="pages"
                             name="pages"
-                            max="10000"
+                            maxlength="6"
                         />
                     </div>
 
                     <div>
-                        <label for="readStatus">Have you read the book?</label>
+                        <label for="readStatus">Completed?</label>
                         <input
                             type="checkbox"
                             id="readStatus"
