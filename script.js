@@ -13,6 +13,7 @@ const myLibrary = [
     },
 ];
 const shelf = document.querySelector('.shelf');
+const newBook = document.querySelector('.new-book');
 
 function Book(title, author, pages, readStatus) {
     this.title = title;
