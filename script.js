@@ -4,16 +4,19 @@ const newBookButton = document.querySelector('.new-entry-button');
 const newBookModal = document.querySelector('.new-book');
 const modalSubmitButton = document.querySelector("button[type='submit']");
 
-function Book(title, author, pages, readStatus) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.readStatus = readStatus;
+class Book {
+    constructor(title, author, pages, readStatus) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+    }
+
+    toggleReadState() {
+        this.readStatus = !this.readStatus;
+        refreshBookLog(myLibrary);
+    }
 }
-Book.prototype.toggleReadState = function () {
-    this.readStatus = !this.readStatus;
-    refreshBookLog(myLibrary);
-};
 
 function retrofitOld() {
     //Ment to RetroFit old bookdata so that it may be used with the Book object
@@ -33,6 +36,7 @@ function initialiseButtons() {
     newBookButton.addEventListener('click', () => {
         newBookModal.showModal();
     });
+
     modalSubmitButton.addEventListener('click', () => {
         const book1 = new Book(
             title.value,
