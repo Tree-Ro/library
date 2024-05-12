@@ -1,85 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Library</title>
-        <link rel="stylesheet" href="styles.css" />
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <h1 class="header-title">My Library</h1>
-                <object
-                    data="icons/themeicon.svg"
-                    type="image/svg+xml"
-                    width="30"
-                    height="30"
-                    class="svg-darkmode"
-                ></object>
-                <div class="lib-log">
-                    <p class="total-books">Total: 0</p>
-                    <p class="finished-books">Finished: 0</p>
-                    <p class="unfinished-books">Unfinished: 0</p>
-                </div>
-            </div>
-
-            <dialog class="new-book">
-                <h2>Add a new book!</h2>
-                <form action="#" method="dialog">
-                    <div>
-                        <label for="title">Title:</label>
-                        <input
-                            type="text"
-                            id="title"
-                            name="title"
-                            maxlength="15"
-                        />
-                    </div>
-
-                    <div>
-                        <label for="author">Author:</label>
-                        <input
-                            type="text"
-                            id="author"
-                            name="author"
-                            maxlength="15"
-                        />
-                    </div>
-
-                    <div>
-                        <label for="pages">Pages</label>
-                        <input
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            type="number"
-                            id="pages"
-                            name="pages"
-                            maxlength="6"
-                        />
-                    </div>
-
-                    <div>
-                        <label for="readStatus">Completed?</label>
-                        <input
-                            type="checkbox"
-                            id="readStatus"
-                            name="card-read"
-                            checked
-                        />
-                    </div>
-
-                    <button type="submit">Add Entry</button>
-                </form>
-            </dialog>
-
-            <div class="content">
-                <div class="navbar">
-                    <button class="new-entry-button">New Book</button>
-                </div>
-
-                <div class="shelf"></div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 class="header-title">My Library</h1>
+        <object
+          data="icons/themeicon.svg"
+          type="image/svg+xml"
+          width="30"
+          height="30"
+          class="svg-darkmode"></object>
+        <div class="lib-log">
+          <p class="total-books">Total: 0</p>
+          <p class="finished-books">Finished: 0</p>
+          <p class="unfinished-books">Unfinished: 0</p>
         </div>
-    </body>
+      </div>
+
+      <dialog class="new-book">
+        <h2>Add a new book!</h2>
+        <form action="#" method="dialog">
+          <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" maxlength="15" />
+          </div>
+
+          <div>
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" maxlength="15" />
+          </div>
+
+          <div>
+            <label for="pages">Pages</label>
+            <input
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              type="number"
+              id="pages"
+              name="pages"
+              maxlength="6" />
+          </div>
+
+          <div>
+            <label for="readStatus">Completed?</label>
+            <input type="checkbox" id="readStatus" name="card-read" checked />
+          </div>
+
+          <button type="submit">Add Entry</button>
+        </form>
+      </dialog>
+
+      <div class="content">
+        <div class="navbar">
+          <button class="new-entry-button">New Book</button>
+        </div>
+
+        <div class="shelf"></div>
+      </div>
+    </div>
+  </body>
 </html>
